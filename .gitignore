@@ -1,0 +1,18 @@
+
+\.vs/
+
+Library/
+
+ProjectSettings/
+
+Temp/
+
+Packages/
+
+obj/
+
+Logs/
+
+Assembly-CSharp\.csproj
+
+RTS - DEV\.sln
