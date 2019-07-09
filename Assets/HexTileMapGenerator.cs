@@ -4,7 +4,7 @@ using UnityEngine;
 
 public class HexTileMapGenerator : MonoBehaviour
 {
-    //================================Variables
+    //================================ Variables
 
     //Hexagon Prefab
     public GameObject hexTilePrefab;
@@ -17,7 +17,7 @@ public class HexTileMapGenerator : MonoBehaviour
     [SerializeField] float tileXOffset = 1.8f;
     [SerializeField] float tileZOffset = 1.565f;
 
-    //================================Methods
+    //================================ Methods
 
     void Start()
     {
@@ -51,12 +51,8 @@ public class HexTileMapGenerator : MonoBehaviour
     void SetTileInfo(GameObject GO, HexTile HT)
     {
         GO.transform.parent = transform;
-        GO.name = HT.getXCoord() + " , " + HT.getZCoord();
+        GO.name = HT.CoordinateToString() ;
+        HT.SetName(GO.name);
     }
-    
-    void SetTileInfo(GameObject GO, int x, int z)
-    {
-        GO.transform.parent = transform;
-        GO.name = x.ToString() + " , " + z.ToString();
-    }
+
 }

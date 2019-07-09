@@ -16,3 +16,5 @@ Logs/
 Assembly-CSharp\.csproj
 
 RTS - DEV\.sln
+
+*.sln

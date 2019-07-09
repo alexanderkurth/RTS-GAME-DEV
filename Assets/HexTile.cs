@@ -4,7 +4,7 @@ using UnityEngine;
 
 public class HexTile
 {
-    //================================Variables
+    //================================ Variables
 
     private string name;
 
@@ -12,7 +12,7 @@ public class HexTile
     private float y;
     private float z;
 
-    //================================Constructor
+    //================================ Constructor
 
     public HexTile(float x, float y, float z)
     {
@@ -21,38 +21,29 @@ public class HexTile
         this.z = z;
     }
 
-    //================================Methods
+    //================================ Methods
 
-    public string CoordinatesToString()
+    public string CoordinateToString()
     {
-        return this.x.ToString() + " , " + this.z.ToString();
+        return (int)(this.x / 1.8f) + " , " + (int)(this.z / 1.565f);
     }
 
-    //================================Getters & Setters
-
+    //================================ Getters & Setters
 
     public void SetName(string name)
     {
         this.name = name;
     }
 
-    public float getX()
+    public float GetX()
     {
         return this.x;
     }
 
-    public float getZ()
+    public float GetZ()
     {
         return this.z;
     }
 
-    public int getXCoord()
-    {
-        return (int) (this.x / 1.8f);
-    }
 
-    public int getZCoord()
-    {
-        return (int) (this.z / 1.565f);
-    }
 }
