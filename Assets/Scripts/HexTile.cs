@@ -6,44 +6,21 @@ public class HexTile
 {
     //================================ Variables
 
-    private string name;
-
-    private float x;
-    private float y;
-    private float z;
+    //Coordinates
+    public HexCoordinates coordinates;
 
     //================================ Constructor
-
-    public HexTile(float x, float y, float z)
+    public HexTile(HexCoordinates coordinates)
     {
-        this.x = x;
-        this.y = y;
-        this.z = z;
+        this.coordinates = coordinates;
     }
+
 
     //================================ Methods
 
-    public string CoordinateToString()
-    {
-        return (int)(this.x / 1.8f) + " , " + (int)(this.z / 1.565f);
-    }
+
 
     //================================ Getters & Setters
-
-    public void SetName(string name)
-    {
-        this.name = name;
-    }
-
-    public float GetX()
-    {
-        return this.x;
-    }
-
-    public float GetZ()
-    {
-        return this.z;
-    }
 
 
 }

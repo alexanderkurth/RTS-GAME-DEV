@@ -26,9 +26,9 @@ public class HexTileMapGenerator : MonoBehaviour
 
     void CreateHexTileMap()
     {
-        for(int x = 1; x <= mapWidth; x++)
+        for(int x = 0; x <= mapWidth; x++)
         {
-            for(int z = 1; z <= mapLength; z++)
+            for(int z = 0; z <= mapLength; z++)
             {
                 GameObject TemporaryGameObject = Instantiate(hexTilePrefab);
                 HexTile TemporaryHexTile;
@@ -36,12 +36,12 @@ public class HexTileMapGenerator : MonoBehaviour
                 if(z % 2 == 0)
                 {
                     TemporaryGameObject.transform.position = new Vector3(x * tileXOffset, 0, z * tileZOffset );
-                    TemporaryHexTile = new HexTile(x * tileXOffset, 0, z * tileZOffset);
+                    TemporaryHexTile = new HexTile(HexCoordinates.FromOffsetCoordinates(x, z));
                 }
                 else
                 {
                     TemporaryGameObject.transform.position = new Vector3(x * tileXOffset + tileXOffset / 2, 0, z * tileZOffset);
-                    TemporaryHexTile = new HexTile(x * tileXOffset + tileXOffset / 2, 0, z * tileZOffset);
+                    TemporaryHexTile = new HexTile(HexCoordinates.FromOffsetCoordinates(x, z));
                 }
                 SetTileInfo(TemporaryGameObject, TemporaryHexTile);
             }
@@ -51,8 +51,6 @@ public class HexTileMapGenerator : MonoBehaviour
     void SetTileInfo(GameObject GO, HexTile HT)
     {
         GO.transform.parent = transform;
-        GO.name = HT.CoordinateToString() ;
-        HT.SetName(GO.name);
+        GO.name = HT.coordinates.ToString();
     }
-
 }

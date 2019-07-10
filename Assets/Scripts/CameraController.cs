@@ -14,7 +14,6 @@ public class CameraController : MonoBehaviour
     private float panBorderThickness = 10.0f;
     private float minY = 5.0f;
     private float maxY = 30.0f;
-    private int scrollSpeed = 10;
 
     private Quaternion targetRotation;
     private float targetRotationY;
