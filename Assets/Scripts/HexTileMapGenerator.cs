@@ -51,6 +51,6 @@ public class HexTileMapGenerator : MonoBehaviour
     void SetTileInfo(GameObject GO, HexTile HT)
     {
         GO.transform.parent = transform;
-        GO.name = HT.coordinates.ToString();
+        GO.name = HT.GetCoordinates().ToString();
     }
 }
