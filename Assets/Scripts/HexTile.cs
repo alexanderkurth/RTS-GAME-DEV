@@ -2,12 +2,11 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-public class HexTile
+public class HexTile 
 {
     //================================ Variables
 
     private bool empty;
-
 
     //Coordinates
     private HexCoordinates coordinates;

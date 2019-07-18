@@ -3,27 +3,35 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
 
-public class InfoDIsplay : MonoBehaviour
+public class InfoDisplay : MonoBehaviour
 {
+    //================================ Variables
 
+    //UI Text
     public Text infoText;
-    public string info;
 
+    //Hextile's name
+    private string hextileName;
+    private bool isEmpty;
+
+    //================================ Methods
 
     void Update()
     {
-       
-
-
         if (Input.GetMouseButtonDown(0))
         {
-            Ray ray = Camera.main.ScreenPointToRay(Input.mousePosition);
-            RaycastHit hit;
-            if (Physics.Raycast(ray, out hit))
-            {
-                Debug.Log(hit.transform.name);
-                infoText.text = hit.transform.name;
-            }
+            ClickOnTile();
+        }
+    }
+
+    void ClickOnTile()
+    {
+        Ray ray = Camera.main.ScreenPointToRay(Input.mousePosition);
+        RaycastHit hit;
+        if (Physics.Raycast(ray, out hit))
+        {
+            hextileName = hit.transform.name;
+            infoText.text = hextileName;
         }
     }
 }

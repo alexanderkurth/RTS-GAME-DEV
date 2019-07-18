@@ -17,6 +17,9 @@ public class HexTileMapGenerator : MonoBehaviour
     [SerializeField] float tileXOffset = 1.8f;
     [SerializeField] float tileZOffset = 1.565f;
 
+    //Number
+    private int count = 0;
+
     //================================ Methods
 
     void Start()
@@ -44,6 +47,7 @@ public class HexTileMapGenerator : MonoBehaviour
                     TemporaryHexTile = new HexTile(HexCoordinates.FromOffsetCoordinates(x, z));
                 }
                 SetTileInfo(TemporaryGameObject, TemporaryHexTile);
+                count++;
             }
         }
     }
@@ -51,6 +55,6 @@ public class HexTileMapGenerator : MonoBehaviour
     void SetTileInfo(GameObject GO, HexTile HT)
     {
         GO.transform.parent = transform;
-        GO.name = HT.GetCoordinates().ToString();
+        GO.name = "Hextile " + count;
     }
 }

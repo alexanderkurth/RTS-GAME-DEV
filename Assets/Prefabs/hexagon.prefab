@@ -11,7 +11,6 @@ GameObject:
   - component: {fileID: 6492494338104819381}
   - component: {fileID: 2829104495893922947}
   - component: {fileID: 8394277494051321978}
-  - component: {fileID: 5946655034717910464}
   - component: {fileID: 4654213059677033173}
   m_Layer: 0
   m_Name: hexagon
@@ -79,18 +78,6 @@ MeshRenderer:
   m_SortingLayerID: 0
   m_SortingLayer: 0
   m_SortingOrder: 0
---- !u!114 &5946655034717910464
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 7800974436935273638}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: b1994ee969e250246ae98e322d37287f, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
 --- !u!64 &4654213059677033173
 MeshCollider:
   m_ObjectHideFlags: 0
