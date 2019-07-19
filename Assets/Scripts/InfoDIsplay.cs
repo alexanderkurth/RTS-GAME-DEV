@@ -12,7 +12,11 @@ public class InfoDisplay : MonoBehaviour
 
     //Hextile's name
     private string hextileName;
-    private string str;
+    private string coordinates;
+    private string emptyness;
+
+
+
     //================================ Methods
 
     void Update()
@@ -29,9 +33,16 @@ public class InfoDisplay : MonoBehaviour
         RaycastHit hit;
         if (Physics.Raycast(ray, out hit))
         {
-            hextileName = hit.transform.gameObject.GetComponent<HexTile>().hexTileName;
-            str = hit.transform.gameObject.GetComponent<HexTile>().coordinates.ToString();
-            infoText.text =  hextileName + "\n" + str;
+
+         //   Material m_Material = hit.transform.gameObject.GetComponent<Renderer>().material;
+
+            hextileName = hit.transform.gameObject.GetComponent<HexTile>().GetHexTileName();
+            coordinates = hit.transform.gameObject.GetComponent<HexTile>().GetCoordinates().ToString();
+            emptyness = hit.transform.gameObject.GetComponent<HexTile>().IsEmpty().ToString();
+            infoText.text =  hextileName + "\n" + coordinates + "\n" + emptyness ;
+
+         //   m_Material.color = Color.red;
+
         }
     }
 }

@@ -6,19 +6,11 @@ public class HexTile : MonoBehaviour
 {
     //================================ Variables
 
-    public bool empty;
-    public string hexTileName;
+    [SerializeField]bool empty;
+    [SerializeField]string hexTileName;
 
     //Coordinates
-    public HexCoordinates coordinates;
-
-    //================================ Constructor
-    public HexTile(HexCoordinates coordinates)
-    {
-        this.coordinates = coordinates;
-        this.empty = true;
-    }
-
+    private HexCoordinates coordinates;
 
     //================================ Methods
 
@@ -27,4 +19,7 @@ public class HexTile : MonoBehaviour
     public void SetHexCoordinates(HexCoordinates hc) { this.coordinates = hc; }
     public bool IsEmpty() { return this.empty; }
     public void SetEmpty(bool b) { this.empty = b; }
+
+    public string GetHexTileName() { return this.hexTileName; }
+    public void SetHexTileName(string name) { this.hexTileName = name; }
 }

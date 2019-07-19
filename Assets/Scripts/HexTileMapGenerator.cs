@@ -54,6 +54,7 @@ public class HexTileMapGenerator : MonoBehaviour
     void SetTileInfo(GameObject GO)
     {
         GO.transform.parent = transform;
-        GO.GetComponent<HexTile>().hexTileName = "Hextile " + count;
+        GO.GetComponent<HexTile>().SetHexTileName("Hextile " + count);
+        GO.name = ("Hextile " + count);
     }
 }
