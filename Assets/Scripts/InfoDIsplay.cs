@@ -12,8 +12,7 @@ public class InfoDisplay : MonoBehaviour
 
     //Hextile's name
     private string hextileName;
-    private bool isEmpty;
-
+    private string str;
     //================================ Methods
 
     void Update()
@@ -30,8 +29,9 @@ public class InfoDisplay : MonoBehaviour
         RaycastHit hit;
         if (Physics.Raycast(ray, out hit))
         {
-            hextileName = hit.transform.name;
-            infoText.text = hextileName;
+            hextileName = hit.transform.gameObject.GetComponent<HexTile>().hexTileName;
+            str = hit.transform.gameObject.GetComponent<HexTile>().coordinates.ToString();
+            infoText.text =  hextileName + "\n" + str;
         }
     }
 }

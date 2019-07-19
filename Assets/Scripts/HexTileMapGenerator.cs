@@ -34,27 +34,26 @@ public class HexTileMapGenerator : MonoBehaviour
             for(int z = 0; z <= mapLength; z++)
             {
                 GameObject TemporaryGameObject = Instantiate(hexTilePrefab);
-                HexTile TemporaryHexTile;
 
                 if(z % 2 == 0)
                 {
                     TemporaryGameObject.transform.position = new Vector3(x * tileXOffset, 0, z * tileZOffset );
-                    TemporaryHexTile = new HexTile(HexCoordinates.FromOffsetCoordinates(x, z));
+                    TemporaryGameObject.GetComponent<HexTile>().SetHexCoordinates(HexCoordinates.FromOffsetCoordinates(x, z));
                 }
                 else
                 {
                     TemporaryGameObject.transform.position = new Vector3(x * tileXOffset + tileXOffset / 2, 0, z * tileZOffset);
-                    TemporaryHexTile = new HexTile(HexCoordinates.FromOffsetCoordinates(x, z));
+                    TemporaryGameObject.GetComponent<HexTile>().SetHexCoordinates(HexCoordinates.FromOffsetCoordinates(x, z));
                 }
-                SetTileInfo(TemporaryGameObject, TemporaryHexTile);
+                SetTileInfo(TemporaryGameObject);
                 count++;
             }
         }
     }
 
-    void SetTileInfo(GameObject GO, HexTile HT)
+    void SetTileInfo(GameObject GO)
     {
         GO.transform.parent = transform;
-        GO.name = "Hextile " + count;
+        GO.GetComponent<HexTile>().hexTileName = "Hextile " + count;
     }
 }
