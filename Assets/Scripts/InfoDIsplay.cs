@@ -36,7 +36,7 @@ public class InfoDisplay : MonoBehaviour
         if (Physics.Raycast(ray, out hit))
         {
 
-         //   Material m_Material = hit.transform.gameObject.GetComponent<Renderer>().material;
+            Material m_Material = hit.transform.gameObject.GetComponent<Renderer>().material;
 
             hextileName = hit.transform.gameObject.GetComponent<HexTile>().GetHexTileName();
             coordinates = hit.transform.gameObject.GetComponent<HexTile>().GetCoordinates().ToString();
@@ -47,15 +47,27 @@ public class InfoDisplay : MonoBehaviour
             {
                 selectedHextile = hit.transform.gameObject.GetComponent<HexTile>();
                 selectedHextile.SetSelected(true);
+                m_Material.color = Color.red;
+
             }
             else if(selectedHextile == hit.transform.gameObject.GetComponent<HexTile>())
             {
                 selectedHextile.SetSelected(false);
                 selectedHextile = null;
+                m_Material.color = Color.white;
+            }
+            else if(!IsHextileSelected(hit.transform.gameObject.GetComponent<HexTile>()) && selectedHextile != null)
+            {
+                selectedHextile.SetSelected(false);
+                Material m_Material2 = selectedHextile.GetComponent<Renderer>().material;
+                m_Material2.color = Color.white;
+
+                selectedHextile = hit.transform.gameObject.GetComponent<HexTile>();
+                selectedHextile.SetSelected(true);
+                m_Material.color = Color.red;
             }
 
 
-            //   m_Material.color = Color.red;
 
         }
     }
