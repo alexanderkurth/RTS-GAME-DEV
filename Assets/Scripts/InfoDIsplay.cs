@@ -15,6 +15,8 @@ public class InfoDisplay : MonoBehaviour
     private string coordinates;
     private string emptyness;
 
+    public HexTile selectedHextile;
+
 
 
     //================================ Methods
@@ -41,8 +43,25 @@ public class InfoDisplay : MonoBehaviour
             emptyness = hit.transform.gameObject.GetComponent<HexTile>().IsEmpty().ToString();
             infoText.text =  hextileName + "\n" + coordinates + "\n" + emptyness ;
 
-         //   m_Material.color = Color.red;
+            if ( !IsHextileSelected(hit.transform.gameObject.GetComponent<HexTile>()) && selectedHextile == null )
+            {
+                selectedHextile = hit.transform.gameObject.GetComponent<HexTile>();
+                selectedHextile.SetSelected(true);
+            }
+            else if(selectedHextile == hit.transform.gameObject.GetComponent<HexTile>())
+            {
+                selectedHextile.SetSelected(false);
+                selectedHextile = null;
+            }
+
+
+            //   m_Material.color = Color.red;
 
         }
+    }
+
+    private bool IsHextileSelected(HexTile hextile)
+    {
+        return hextile.IsSelected();
     }
 }
