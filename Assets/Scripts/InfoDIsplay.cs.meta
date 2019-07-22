@@ -3,7 +3,11 @@ guid: 973103ee179065447a4f71cb6e7bcca5
 MonoImporter:
   externalObjects: {}
   serializedVersion: 2
-  defaultReferences: []
+  defaultReferences:
+  - infoText: {instanceID: 0}
+  - selectedHextile: {instanceID: 0}
+  - building: {fileID: 7624088725802603785, guid: b54371e1b8b20db46b552b5385692800,
+      type: 3}
   executionOrder: 0
   icon: {instanceID: 0}
   userData: 

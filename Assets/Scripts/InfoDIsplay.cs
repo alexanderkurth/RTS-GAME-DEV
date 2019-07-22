@@ -10,14 +10,9 @@ public class InfoDisplay : MonoBehaviour
     //UI Text
     public Text infoText;
 
-    //Hextile's name
-    private string hextileName;
-    private string coordinates;
-    private string emptyness;
-
     public HexTile selectedHextile;
 
-
+    public HexTileManager hextileManager;
 
     //================================ Methods
 
@@ -29,51 +24,44 @@ public class InfoDisplay : MonoBehaviour
         }
     }
 
-    void ClickOnTile()
+    void ClickOnTile()//[TODO] Refactor -- class Input manager + HextileManager + UiManager 
     {
         Ray ray = Camera.main.ScreenPointToRay(Input.mousePosition);
         RaycastHit hit;
         if (Physics.Raycast(ray, out hit))
         {
+            hextileManager = hit.transform.gameObject.GetComponent<HexTileManager>();
+            string hextileName;
+            string coordinates;
+            string emptyness;
 
-            Material m_Material = hit.transform.gameObject.GetComponent<Renderer>().material;
+            hextileName = hextileManager.GetHexTile().GetHexTileName();
+            coordinates = hextileManager.GetHexTile().GetCoordinates().ToString();
+            emptyness = hextileManager.GetHexTile().IsEmpty().ToString();
+            infoText.text = hextileName + "\n" + coordinates + "\n" + emptyness;
 
-            hextileName = hit.transform.gameObject.GetComponent<HexTile>().GetHexTileName();
-            coordinates = hit.transform.gameObject.GetComponent<HexTile>().GetCoordinates().ToString();
-            emptyness = hit.transform.gameObject.GetComponent<HexTile>().IsEmpty().ToString();
-            infoText.text =  hextileName + "\n" + coordinates + "\n" + emptyness ;
-
-            if ( !IsHextileSelected(hit.transform.gameObject.GetComponent<HexTile>()) && selectedHextile == null )
+            if (!hextileManager.IsSelected() && selectedHextile == null)
             {
                 selectedHextile = hit.transform.gameObject.GetComponent<HexTile>();
                 selectedHextile.SetSelected(true);
-                m_Material.color = Color.red;
+                hextileManager.SetMaterialColor(Color.red);
 
             }
-            else if(selectedHextile == hit.transform.gameObject.GetComponent<HexTile>())
+            else if (selectedHextile == hit.transform.gameObject.GetComponent<HexTile>())
             {
                 selectedHextile.SetSelected(false);
                 selectedHextile = null;
-                m_Material.color = Color.white;
+                hextileManager.SetMaterialColor(Color.white);
             }
-            else if(!IsHextileSelected(hit.transform.gameObject.GetComponent<HexTile>()) && selectedHextile != null)
+            else if (!hextileManager.IsSelected() && selectedHextile != null)
             {
                 selectedHextile.SetSelected(false);
-                Material m_Material2 = selectedHextile.GetComponent<Renderer>().material;
-                m_Material2.color = Color.white;
+                selectedHextile.gameObject.GetComponent<HexTileManager>().SetMaterialColor(Color.white);
 
                 selectedHextile = hit.transform.gameObject.GetComponent<HexTile>();
                 selectedHextile.SetSelected(true);
-                m_Material.color = Color.red;
+                hextileManager.SetMaterialColor(Color.red);
             }
-
-
-
         }
-    }
-
-    private bool IsHextileSelected(HexTile hextile)
-    {
-        return hextile.IsSelected();
     }
 }

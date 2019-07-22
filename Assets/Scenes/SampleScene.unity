@@ -213,6 +213,10 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   infoText: {fileID: 462618760}
+  selectedHextile: {fileID: 0}
+  building: {fileID: 7624088725802603785, guid: b54371e1b8b20db46b552b5385692800,
+    type: 3}
+  hextileManager: {fileID: 0}
 --- !u!1 &705507993
 GameObject:
   m_ObjectHideFlags: 0

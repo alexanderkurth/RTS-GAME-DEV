@@ -4,11 +4,15 @@ public class HexTile : MonoBehaviour
 {
     //================================ Variables
 
-    [SerializeField]bool empty;
-    [SerializeField]string hexTileName;
+    private bool empty;
+    private string hexTileName;
 
-    [SerializeField] bool selected;
+    //Tile Management
+    public bool selected;
 
+    //Buildings
+    private bool buildable;
+    private Building building;
 
     //Coordinates
     private HexCoordinates coordinates;
@@ -26,7 +30,14 @@ public class HexTile : MonoBehaviour
     public bool IsSelected() { return this.selected; }
     public void SetSelected(bool b) { this.selected = b; }
 
+    public bool IsBuildable() { return this.buildable; }
+    public void SetBuildable(bool b) { this.buildable = b; }
+
+    public Building GetBuilding() { return this.building; }
+    public void SetBuilding(Building building) { this.building = building; }
+
     public string GetHexTileName() { return this.hexTileName; }
     public void SetHexTileName(string name) { this.hexTileName = name; }
+
 
 }
