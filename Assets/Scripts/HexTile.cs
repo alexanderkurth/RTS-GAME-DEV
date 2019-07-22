@@ -7,14 +7,11 @@ public class HexTile : MonoBehaviour
     private bool empty;
     private string hexTileName;
 
-    //Tile Management
     public bool selected;
 
-    //Buildings
     private bool buildable;
     private Building building;
 
-    //Coordinates
     private HexCoordinates coordinates;
 
     //================================ Methods

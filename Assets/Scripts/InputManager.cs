@@ -4,22 +4,18 @@ using UnityEngine;
 
 public class InputManager : MonoBehaviour
 {
-    void Update()
-    {
-        if (Input.GetMouseButtonDown(0))
-        {
-            Click();
-        }
-    }
+    //================================ Variables
 
-    void Click()
+
+    //================================ Methods
+
+    public HexTile GetHexTileClicked()
     {
         Ray ray = Camera.main.ScreenPointToRay(Input.mousePosition);
         RaycastHit hit;
         if (Physics.Raycast(ray, out hit))
-        {
-
-        }
+            return hit.transform.gameObject.GetComponent<HexTile>();   
+        else
+            return null;
     }
-
 }

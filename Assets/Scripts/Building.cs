@@ -3,6 +3,7 @@
 public class Building : MonoBehaviour
 {
     //================================ Variables
+
     public HexCoordinates hexCoordinates;
     public string buildingName;
 
