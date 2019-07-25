@@ -10,7 +10,7 @@ public class HexTile : MonoBehaviour
     public bool selected;
 
     private bool buildable;
-    private Building building;
+    public Building building;
 
     private HexCoordinates coordinates;
 

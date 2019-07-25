@@ -12,7 +12,18 @@ public class HexTileManager : MonoBehaviour
 
     public void Build()
     {
-        Instantiate(building, new Vector3(GetComponent<Renderer>().bounds.center.x, 0.5f, GetComponent<Renderer>().bounds.center.z), Quaternion.identity);
+        if(GetHexTile().IsBuildable() && GetHexTile().GetBuilding() == null)
+        {
+            Building b;
+            b = (Instantiate(building, new Vector3(GetComponent<Renderer>().bounds.center.x, 0.5f, GetComponent<Renderer>().bounds.center.z), Quaternion.identity));
+            SetBuilding(b);
+            b.gameObject.transform.parent = GetHexTile().gameObject.transform;
+        }
+    }
+
+    private bool CheckBuildingOnTile()
+    {
+        return GetComponent<HexTile>().GetBuilding();
     }
 
     //================================ Getters & Setters
@@ -23,5 +34,7 @@ public class HexTileManager : MonoBehaviour
 
     public bool IsSelected() { return GetComponent<HexTile>().IsSelected(); }
     public void SetSelected(bool b) { GetComponent<HexTile>().SetSelected(b); }
+
+    public void SetBuilding(Building building) { GetComponent<HexTile>().SetBuilding(building); }
 
 }

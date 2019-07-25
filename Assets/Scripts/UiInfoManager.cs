@@ -5,7 +5,7 @@ public class UiInfoManager : MonoBehaviour
     //================================ Variables
 
     private string infoText;
-    [SerializeField] HexTileManager hextileManager;
+    private HexTileManager hextileManager;
 
     public InputManager inputManager;
 
@@ -19,6 +19,8 @@ public class UiInfoManager : MonoBehaviour
         {
             GetInformations();
         }
+        else
+            infoText = null;
     }
 
     void GetInformations()//check hextile manager from InputManager

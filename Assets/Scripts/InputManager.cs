@@ -13,7 +13,7 @@ public class InputManager : MonoBehaviour
 
     void Update()
     {
-        if (Input.GetMouseButtonDown(0))
+        if (Input.GetMouseButtonDown(0) && GetHexTileClicked())//[BUG] Null pointer exception on button
         {
             hexTileManager = GetHexTileClicked().transform.gameObject.GetComponent<HexTileManager>();
 
