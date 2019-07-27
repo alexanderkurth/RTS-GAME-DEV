@@ -4,15 +4,15 @@ public class HexTile : MonoBehaviour
 {
     //================================ Variables
 
-    public bool empty;
-    public string hexTileName;
+    [SerializeField] private bool empty;
+    [SerializeField] private string hexTileName;
 
-    public bool selected;
+    [SerializeField] private bool selected;
 
-    public bool buildable;
-    public Building building;
+    [SerializeField] private bool buildable;
+    [SerializeField] private Building building;
 
-    public HexCoordinates coordinates;
+    [SerializeField] private HexCoordinates coordinates;
 
     //================================ Methods
 

@@ -87,9 +87,8 @@ public class HexTileManager : MonoBehaviour
         if(GetHexTile().IsBuildable() && GetHexTile().GetBuilding() == null)
         {
             Building b;
-            b = (Instantiate(building, new Vector3(GetComponent<Renderer>().bounds.center.x, 0.5f, GetComponent<Renderer>().bounds.center.z), Quaternion.identity));
+            b = (Instantiate(building, new Vector3(transform.position.x, 0.5f, transform.position.z), new Quaternion(0.0f, 0.0f, 0.0f, 0.0f))) ;
             SetBuilding(b);
-            b.gameObject.transform.parent = GetHexTile().gameObject.transform;
         }
     }
 
