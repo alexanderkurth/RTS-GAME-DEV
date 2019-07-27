@@ -37,12 +37,12 @@ public class HexTileMapGenerator : MonoBehaviour
 
                 if(z % 2 == 0)
                 {
-                    TemporaryGameObject.transform.position = new Vector3(x * tileXOffset, 0, z * tileZOffset );
+                    TemporaryGameObject.transform.position = new Vector3(x * tileXOffset, 2, z * tileZOffset );
                     TemporaryGameObject.GetComponent<HexTile>().SetHexCoordinates(HexCoordinates.FromOffsetCoordinates(x, z));
                 }
                 else
                 {
-                    TemporaryGameObject.transform.position = new Vector3(x * tileXOffset + tileXOffset / 2, 0, z * tileZOffset);
+                    TemporaryGameObject.transform.position = new Vector3(x * tileXOffset + tileXOffset / 2, 2, z * tileZOffset);
                     TemporaryGameObject.GetComponent<HexTile>().SetHexCoordinates(HexCoordinates.FromOffsetCoordinates(x, z));
                 }
                 SetTileInfo(TemporaryGameObject);
