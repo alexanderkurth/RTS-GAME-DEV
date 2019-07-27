@@ -56,6 +56,7 @@ public class HexTileMapGenerator : MonoBehaviour
         GO.transform.parent = transform;
         GO.GetComponent<HexTile>().SetHexTileName("Hextile " + count);
         GO.GetComponent<HexTile>().SetBuildable(true);
+        GO.GetComponent<HexTile>().SetEmpty(true);
         GO.name = ("Hextile " + count);
     }
 }

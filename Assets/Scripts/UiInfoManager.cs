@@ -28,11 +28,13 @@ public class UiInfoManager : MonoBehaviour
             string hextileName;
             string coordinates;
             string emptyness;
+        Building b;
 
             hextileName = hextileManager.GetHexTile().GetHexTileName();
             coordinates = hextileManager.GetHexTile().GetCoordinates().ToString();
             emptyness = hextileManager.GetHexTile().IsEmpty().ToString();
-            infoText = hextileName + "\n" + coordinates + "\n" + emptyness;
+            b = hextileManager.GetHexTile().GetBuilding();
+            infoText = hextileName + "\n" + coordinates + "\n" + emptyness + b;
         
     }
 

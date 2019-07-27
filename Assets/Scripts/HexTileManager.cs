@@ -8,7 +8,79 @@ public class HexTileManager : MonoBehaviour
 
     public Building building;
 
+    private int redColor ;
+    private int greenColor ;
+    private int blueColor ;
+
+    public bool startedFlashing = false;
+    private bool flashingIn = true;
+    public bool lookingAtObject = false;
+
     //================================ Methods
+
+    void Start()
+    {
+        redColor = (int)GetComponent<Renderer>().material.color.r;
+        greenColor = (int)GetComponent<Renderer>().material.color.g;
+        blueColor = (int)GetComponent<Renderer>().material.color.b;
+    }
+
+    void Update()
+    {
+        if(IsSelected())
+        {
+            GetComponent<Renderer>().material.color = new Color32((byte)redColor, (byte)greenColor, (byte)blueColor, 255);
+            lookingAtObject = true;
+
+            if (!startedFlashing)
+            {
+                startedFlashing = true;
+                StartCoroutine(FlashObject());
+            }
+        }
+        else
+        {
+            startedFlashing = false;
+            lookingAtObject = false;
+            GetComponent<Renderer>().material.color = new Color32(160, 160, 160, 255);
+            StopCoroutine(FlashObject());
+        }
+    }
+
+    IEnumerator FlashObject()
+    {
+        while (lookingAtObject == true)
+        {
+            yield return new WaitForSeconds(0.1f);
+            if (flashingIn == true)
+            {
+                if (blueColor <= 160)
+                {
+                    flashingIn = false;
+                }
+                else
+                {
+                    blueColor -= 25;
+                    redColor -= 25;
+                    greenColor -= 25;
+                }
+            }
+            if (flashingIn == false)
+            {
+                if (blueColor >= 250)
+                {
+                    flashingIn = true;
+                }
+                else
+                {
+                    blueColor += 25;
+                    redColor += 25;
+                    greenColor += 25;
+                }
+            }
+
+        }
+    }
 
     public void Build()
     {
@@ -24,6 +96,11 @@ public class HexTileManager : MonoBehaviour
     private bool CheckBuildingOnTile()
     {
         return GetComponent<HexTile>().GetBuilding();
+    }
+
+    public void Glow()
+    {
+
     }
 
     //================================ Getters & Setters
