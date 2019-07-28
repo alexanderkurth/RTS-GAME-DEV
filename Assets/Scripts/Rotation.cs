@@ -6,26 +6,31 @@ public class Rotation : MonoBehaviour
 {
     float timeCounter = 0;
     public float x, y, z;
-    public Light sun;
-    // Start is called before the first frame update
+    public TimeController timeController;
+
+    public float speed = 1;
+    float width;
+    float height;
+
     void Start()
     {
-        
+        x = transform.position.x;
+        y = transform.position.y;
+        z = transform.position.z;
     }
 
-    // Update is called once per frame
     void Update()
     {
-        //transform.RotateAround(Vector3.zero, Vector3.up, 20 * Time.deltaTime);
+        float timeOfDay = timeController.timeOfDay;
+        float sunAngle = timeOfDay * 360.0f;
 
-        timeCounter += Time.deltaTime / 4;
+        timeCounter += Time.deltaTime * speed;
 
         x = Mathf.Cos(timeCounter);
         y = Mathf.Sin(timeCounter);
         z = 0;
 
-        transform.position = new Vector3(x*10, y*10, z);
+        transform.position = new Vector3(x, y, z);
 
-        sun.transform.Rotate(new Vector3(x ,0,0));
     }
 }
