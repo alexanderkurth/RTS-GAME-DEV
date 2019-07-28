@@ -5,17 +5,43 @@ using UnityEngine;
 public class OrbitMotion : MonoBehaviour
 {
     
-    public TimeController timeController;
+    [SerializeField] private TimeController timeController;
+    [SerializeField] private GameObject sun;
+    [SerializeField] private GameObject moon;
+
+
 
     void Update()
     {
+        SunOrbit();
+        MoonOrbit();
+    }
+
+    public void SunOrbit()
+    {
         float sunAngle = (timeController.timeOfDay * 360.0f);
-        float rad = sunAngle * Mathf.Deg2Rad + 3*Mathf.PI/2;
-        float x = Mathf.Cos(rad)*5;
-        float y = Mathf.Sin(rad)*5;
+        float rad = ConvertToRadient(sunAngle) + 3 * Mathf.PI / 2;
+        float x = Mathf.Cos(rad) * 50;
+        float y = Mathf.Sin(rad) * 50;
         float z = 0;
 
-        transform.position = new Vector3(x, y, z);
+        sun.transform.position = new Vector3(x, y, z);
+    }
+
+    public void MoonOrbit()
+    {
+        float moonAngle = (timeController.timeOfDay * 360.0f);
+        float rad = ConvertToRadient(moonAngle) + Mathf.PI/2;
+        float x = Mathf.Cos(rad) * 50;
+        float y = Mathf.Sin(rad) * 50;
+        float z = 0;
+
+        moon.transform.position = new Vector3(x, y, z);
+    }
+
+    private float ConvertToRadient(float angle)
+    {
+        return angle * Mathf.Deg2Rad;
     }
 
 }

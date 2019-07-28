@@ -6,18 +6,14 @@ public class HexTileMapGenerator : MonoBehaviour
 {
     //================================ Variables
 
-    //Hexagon Prefab
     public GameObject hexTilePrefab;
 
-    //Map dimension
     [SerializeField]int mapWidth = 25;
     [SerializeField]int mapLength = 12;
 
-    //Space between tiles 
     [SerializeField] float tileXOffset = 1.8f;
     [SerializeField] float tileZOffset = 1.565f;
 
-    //Number
     private int count = 0;
 
     //================================ Methods
