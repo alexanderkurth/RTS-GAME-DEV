@@ -3,7 +3,7 @@
 public class HexTile : MonoBehaviour
 {
     //================================ Variables
-    [Header("HextileManagement")]
+    [Header("Hextile Management")]
     [SerializeField] private bool empty;
     [SerializeField] private string hexTileName;
 

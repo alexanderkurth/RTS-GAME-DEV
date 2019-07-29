@@ -7,20 +7,19 @@ using System.Collections;
 public class RadialButton : MonoBehaviour, IPointerEnterHandler, IPointerExitHandler
 {
 
-    public Image circle;        //button image
-    public Image icon;          //icon in button
-    public string title;        //identifier (for testing purposes)
-    public RadialMenu myMenu;   //links back to radial menu
-    public float speed = 8f;    //animation speed
+    public Image circle;       
+    public Image icon;          
+    public string title;        
+    public RadialMenu myMenu;   
+    public float speed = 8f;    
 
-    Color defaultColor;         //used to track color of icon
+    Color defaultColor;         
 
     public void Anim()
     {
         StartCoroutine(AnimateButtonIn());
     }
 
-    //make button grow on screen
     IEnumerator AnimateButtonIn()
     {
         transform.localScale = Vector3.zero;
@@ -34,7 +33,6 @@ public class RadialButton : MonoBehaviour, IPointerEnterHandler, IPointerExitHan
         transform.localScale = Vector3.one;
     }
 
-    //highlights button and sets it to selected
     public void OnPointerEnter(PointerEventData eventData)
     {
         myMenu.selected = this;
@@ -42,7 +40,6 @@ public class RadialButton : MonoBehaviour, IPointerEnterHandler, IPointerExitHan
         circle.color = Color.white;
     }
 
-    //de-highlights and de-selects button
     public void OnPointerExit(PointerEventData eventData)
     {
         myMenu.selected = null;

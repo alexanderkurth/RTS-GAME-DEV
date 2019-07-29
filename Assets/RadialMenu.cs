@@ -1,22 +1,19 @@
-﻿using UnityEngine;
+﻿using System.Collections;
+using UnityEngine;
 using UnityEngine.UI;
-using System.Collections;
 
-//Add this to your menu prefab
 public class RadialMenu : MonoBehaviour
 {
 
-    public Text label;                  //object name appears here
-    public RadialButton buttonPrefab;   //button to instantiate
-    public RadialButton selected;       //button that is selected (leave this empty)
+    public Text label;                  
+    public RadialButton buttonPrefab;   
+    public RadialButton selected;      
 
-    // Use this for initialization
     public void SpawnButtons(Interactable obj)
     {
         StartCoroutine(AnimateButtons(obj));
     }
 
-    //animate buttons in around a circle, one at a time
     IEnumerator AnimateButtons(Interactable obj)
     {
         for (int i = 0; i < obj.options.Length; i++)
@@ -27,7 +24,7 @@ public class RadialMenu : MonoBehaviour
             float xPos = Mathf.Sin(theta);
             float yPos = Mathf.Cos(theta);
             newButton.transform.localPosition = new Vector3(xPos, yPos, 0f) * 100f;
-           newButton.circle.color = obj.options[i].color;
+            newButton.circle.color = obj.options[i].color;
             newButton.icon.sprite = obj.options[i].sprite;
             newButton.title = obj.options[i].title;
             newButton.myMenu = this;
@@ -36,7 +33,6 @@ public class RadialMenu : MonoBehaviour
         }
     }
 
-    //if mouse is released over a button, activate that button
     void Update()
     {
         if (Input.GetMouseButtonUp(0))

@@ -8,13 +8,15 @@ public class HexTileManager : MonoBehaviour
 
     public Building building;
 
-    private int redColor ;
-    private int greenColor ;
-    private int blueColor ;
+    [Header("HighLight Color")]
+    [SerializeField] private int redColor ;
+    [SerializeField] private int greenColor ;
+    [SerializeField] private int blueColor ;
 
-    public bool startedFlashing = false;
-    private bool flashingIn = true;
-    public bool lookingAtObject = false;
+    [Header("HighLight Management")]
+    [SerializeField] private bool startedFlashing = false;
+    [SerializeField] private bool flashingIn = true;
+    [SerializeField] private bool lookingAtObject = false;
 
     //================================ Methods
 
@@ -49,10 +51,10 @@ public class HexTileManager : MonoBehaviour
 
     IEnumerator FlashObject()
     {
-        while (lookingAtObject == true)
+        while (lookingAtObject)
         {
             yield return new WaitForSeconds(0.1f);
-            if (flashingIn == true)
+            if (flashingIn)
             {
                 if (blueColor <= 160)
                 {
@@ -65,7 +67,7 @@ public class HexTileManager : MonoBehaviour
                     greenColor -= 25;
                 }
             }
-            if (flashingIn == false)
+            if (!flashingIn)
             {
                 if (blueColor >= 250)
                 {
