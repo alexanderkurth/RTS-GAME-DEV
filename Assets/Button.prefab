@@ -88,6 +88,11 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 74d35363859b019468ddfc1813c5b695, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  circle: {fileID: 8869959229620229497}
+  icon: {fileID: 8869959230980078445}
+  title: 
+  myMenu: {fileID: 0}
+  speed: 8
 --- !u!1 &8869959230980078447
 GameObject:
   m_ObjectHideFlags: 0
