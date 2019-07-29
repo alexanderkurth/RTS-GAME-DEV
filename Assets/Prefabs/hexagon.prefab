@@ -14,6 +14,7 @@ GameObject:
   - component: {fileID: 4654213059677033173}
   - component: {fileID: 501745167671901397}
   - component: {fileID: -3074383663196187585}
+  - component: {fileID: -6375164486521425218}
   m_Layer: 0
   m_Name: hexagon
   m_TagString: HexagonTile
@@ -88,10 +89,10 @@ MeshCollider:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 7800974436935273638}
   m_Material: {fileID: 0}
-  m_IsTrigger: 0
+  m_IsTrigger: 1
   m_Enabled: 1
   serializedVersion: 3
-  m_Convex: 0
+  m_Convex: 1
   m_CookingOptions: 14
   m_Mesh: {fileID: 2534964839176971238, guid: a97217468865faf40980648de98c3377, type: 3}
 --- !u!114 &501745167671901397
@@ -125,3 +126,22 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   building: {fileID: 7624088725802603785, guid: b54371e1b8b20db46b552b5385692800,
     type: 3}
+  startedFlashing: 0
+  lookingAtObject: 0
+--- !u!114 &-6375164486521425218
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7800974436935273638}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 7c0a91b75c4bb864db407e928da3709c, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  title: 
+  options:
+  - color: {r: 1, g: 1, b: 1, a: 0}
+    sprite: {fileID: 21300000, guid: 395e370737acac746a08e89264d7c119, type: 3}
+    title: potion
