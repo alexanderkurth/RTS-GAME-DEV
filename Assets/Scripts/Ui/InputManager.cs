@@ -4,14 +4,22 @@ public class InputManager : MonoBehaviour
 {
     //================================ Variables
 
-    public HexTile selectedHextile;
-    public HexTileManager hexTileManager;
+    [SerializeField] private HexTile selectedHextile;
+    [SerializeField] private HexTileManager hexTileManager;
 
     //================================ Methods
 
     void Update()
     {
-        if (Input.GetMouseButtonDown(0) && GetHexTileClicked())
+        if (Input.GetMouseButtonDown(0))
+        {
+            HextileManagement();
+        }
+    }
+
+    private void HextileManagement()
+    {
+        if (GetHexTileClicked())
         {
             hexTileManager = GetHexTileClicked().transform.gameObject.GetComponent<HexTileManager>();
 
@@ -19,12 +27,18 @@ public class InputManager : MonoBehaviour
             {
                 selectedHextile = GetHexTileClicked();
                 selectedHextile.SetSelected(true);
+
+                RadialMenuSpawner.ins.SpawnMenu(selectedHextile.GetComponent<Interactable>());
+
             }
             else if (selectedHextile == GetHexTileClicked())
             {
                 selectedHextile.SetSelected(false);
                 selectedHextile = null;
                 hexTileManager = null;
+
+                RadialMenuSpawner.ins.SpawnMenu(selectedHextile.GetComponent<Interactable>());
+
             }
             else if (!hexTileManager.IsSelected() && selectedHextile != null)
             {
@@ -33,6 +47,9 @@ public class InputManager : MonoBehaviour
 
                 selectedHextile = GetHexTileClicked();
                 selectedHextile.SetSelected(true);
+
+                RadialMenuSpawner.ins.SpawnMenu(selectedHextile.GetComponent<Interactable>());
+
             }
 
         }

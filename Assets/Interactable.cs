@@ -27,7 +27,7 @@ public class Interactable : MonoBehaviour
 
     void OnMouseDown()
     {
-        RadialMenuSpawner.ins.SpawnMenu(this);
+     //   RadialMenuSpawner.ins.SpawnMenu(this);
     }
 
 }

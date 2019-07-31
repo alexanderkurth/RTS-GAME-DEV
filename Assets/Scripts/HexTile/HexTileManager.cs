@@ -6,7 +6,8 @@ public class HexTileManager : MonoBehaviour
 {
     //================================ Variables
 
-    public Building building;
+    [Header("Building Management")]
+    public BuildingHandler buildingHandler;
 
     [Header("HighLight Color")]
     [SerializeField] private int redColor ;
@@ -88,8 +89,11 @@ public class HexTileManager : MonoBehaviour
     {
         if(GetHexTile().IsBuildable() && GetHexTile().GetBuilding() == null)
         {
+
             Building b;
-            b = (Instantiate(building, new Vector3(transform.position.x, 0.5f, transform.position.z), new Quaternion(0.0f, 0.0f, 0.0f, 0.0f))) ;
+            Building b2;
+            b2 = buildingHandler.GetSimpleBuilding();
+            b = (Instantiate(b2, new Vector3(transform.position.x, 0.5f, transform.position.z), new Quaternion(0.0f, 0.0f, 0.0f, 0.0f))) ;
             SetBuilding(b);
         }
     }

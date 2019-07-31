@@ -6,6 +6,8 @@ MonoImporter:
   defaultReferences:
   - building: {fileID: 7624088725802603785, guid: b54371e1b8b20db46b552b5385692800,
       type: 3}
+  - buildingHandler: {fileID: 1932040362142326976, guid: ab6cd95988d32d64696c0b7d3854777d,
+      type: 3}
   executionOrder: 0
   icon: {instanceID: 0}
   userData: 

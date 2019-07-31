@@ -29,10 +29,11 @@ public class RadialMenu : MonoBehaviour
             newButton.title = obj.options[i].title;
             newButton.myMenu = this;
             newButton.Anim();
-            yield return new WaitForSeconds(0.12f);
+            yield return new WaitForSeconds(0.1f);
         }
     }
 
+    //[TODO] refactor; ajouter inputManager et vérifier souris
     void Update()
     {
         if (Input.GetMouseButtonUp(0))
@@ -44,5 +45,6 @@ public class RadialMenu : MonoBehaviour
             Destroy(gameObject);
         }
     }
+    
 
 }
