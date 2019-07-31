@@ -37,8 +37,7 @@ public class InputManager : MonoBehaviour
                 selectedHextile = null;
                 hexTileManager = null;
 
-                RadialMenuSpawner.ins.SpawnMenu(selectedHextile.GetComponent<Interactable>());
-
+                RadialMenu.ins.Destroy();
             }
             else if (!hexTileManager.IsSelected() && selectedHextile != null)
             {
@@ -47,6 +46,7 @@ public class InputManager : MonoBehaviour
 
                 selectedHextile = GetHexTileClicked();
                 selectedHextile.SetSelected(true);
+                RadialMenu.ins.Destroy();
 
                 RadialMenuSpawner.ins.SpawnMenu(selectedHextile.GetComponent<Interactable>());
 

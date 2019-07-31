@@ -1,5 +1,4 @@
 ﻿using UnityEngine;
-using UnityEngine.UI;
 
 public class ButtonHandler : MonoBehaviour
 {
@@ -8,11 +7,18 @@ public class ButtonHandler : MonoBehaviour
     public InputManager inputManager;
     public GameObject button;
 
+    public static ButtonHandler ins;
+
     //================================ Methods
+
+    void Start()
+    {
+        ins = this;
+    }
 
     void Update()
     {
-        if (inputManager.GetHexTileManager() )
+        if (inputManager.GetHexTileManager())
             button.gameObject.SetActive(true);
         else
             button.gameObject.SetActive(false);

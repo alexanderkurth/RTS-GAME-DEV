@@ -124,7 +124,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: c2100b9629df69d4da54a30808ff71c1, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  building: {fileID: 0}
   buildingHandler: {fileID: 8607898157745534849, guid: 4ea35c5dfba97d245b0d4d42acb4a452,
     type: 3}
   redColor: 0
@@ -147,12 +146,6 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   title: 
   options:
-  - color: {r: 0.21016884, g: 1, b: 0, a: 1}
-    sprite: {fileID: 21300000, guid: 1ad0a44194cb90d40b50bbfad5b12461, type: 3}
+  - color: {r: 1, g: 0, b: 0, a: 1}
+    sprite: {fileID: 21300000, guid: cdaa40ff531f3a24791544c89880d172, type: 3}
     title: sword
-  - color: {r: 0.9528302, g: 0.004494493, b: 0.004494493, a: 1}
-    sprite: {fileID: 21300000, guid: 395e370737acac746a08e89264d7c119, type: 3}
-    title: potion
-  - color: {r: 0, g: 0.1480086, b: 0.9056604, a: 1}
-    sprite: {fileID: 21300000, guid: 7e06beed79746f249b8a0f46e2d9a523, type: 3}
-    title: magic

@@ -7,7 +7,13 @@ public class RadialMenu : MonoBehaviour
 
     public Text label;                  
     public RadialButton buttonPrefab;   
-    public RadialButton selected;      
+    public RadialButton selected;
+    public static RadialMenu ins;
+
+    void Awake()
+    {
+        ins = this;
+    }
 
     public void SpawnButtons(Interactable obj)
     {
@@ -33,7 +39,6 @@ public class RadialMenu : MonoBehaviour
         }
     }
 
-    //[TODO] refactor; ajouter inputManager et vérifier souris
     void Update()
     {
         if (Input.GetMouseButtonUp(0))
@@ -42,8 +47,13 @@ public class RadialMenu : MonoBehaviour
             {
                 Debug.Log(selected.title + " was selected!");
             }
-            Destroy(gameObject);
+            //Destroy(gameObject);
         }
+    }
+
+    public void Destroy()
+    {
+        Destroy(gameObject);
     }
     
 

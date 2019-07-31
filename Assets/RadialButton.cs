@@ -13,6 +13,8 @@ public class RadialButton : MonoBehaviour, IPointerEnterHandler, IPointerExitHan
     public RadialMenu myMenu;   
     public float speed = 8f;    
 
+    public 
+
     Color defaultColor;         
 
     public void Anim()
@@ -44,6 +46,17 @@ public class RadialButton : MonoBehaviour, IPointerEnterHandler, IPointerExitHan
     {
         myMenu.selected = null;
         circle.color = defaultColor;
+    }
+
+    void Update()
+    {
+        if(Input.GetMouseButtonDown(0))
+            OnMouseDownzd();
+    }
+
+    void OnMouseDownzd()
+    {
+        ButtonHandler.ins.CreateBuilding();
     }
 
 
