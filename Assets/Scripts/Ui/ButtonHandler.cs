@@ -15,13 +15,15 @@ public class ButtonHandler : MonoBehaviour
         ins = this;
     }
 
-    void Update()
-    {
-
-    }
     public void CreateBuilding()
     {
         if (inputManager.GetHexTileManager() != null)
             inputManager.GetHexTileManager().Build();
+    }
+
+    public void DestroyBuilding()
+    {
+        if (inputManager.GetHexTileManager() != null)
+            Building.ins.DestroyBuilding();
     }
 }

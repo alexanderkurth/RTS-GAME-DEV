@@ -1,4 +1,5 @@
 ﻿using UnityEngine;
+using UnityEngine.UI;
 
 public class TimeController : MonoBehaviour
 {
@@ -24,6 +25,13 @@ public class TimeController : MonoBehaviour
     [SerializeField] private float sunVariation = 1.0f;
     [SerializeField] private Gradient sunColor;
 
+    [SerializeField]
+    private float elapsedTime;
+    [SerializeField]
+    private bool use24Clock = true;
+    [SerializeField]
+    private Text clockText;
+
     //================================ Methods
 
     private void Update()
@@ -32,8 +40,9 @@ public class TimeController : MonoBehaviour
         {
             UpdateTimeScale();
             UpdateTime();
+            UpdateClock();
         }
-        AdjustSunRotation();
+       // AdjustSunRotation();
        // SunIntensity();
        // AdjustSunColor();
     }
@@ -45,19 +54,53 @@ public class TimeController : MonoBehaviour
 
     private void UpdateTime()
     {
-        _timeOfDay += Time.deltaTime * _timeScale / 86400; 
-
-        if (_timeOfDay > 1) 
+        _timeOfDay += Time.deltaTime * _timeScale / 86400; // seconds in a day
+        elapsedTime += Time.deltaTime;
+        if (_timeOfDay > 1) //new day!!
         {
+            elapsedTime = 0;
             _dayNumber++;
             _timeOfDay -= 1;
 
-            if (_dayNumber > _yearLength) 
+            if (_dayNumber > _yearLength) //new year!
             {
                 _yearNumber++;
                 _dayNumber = 0;
             }
         }
+    }
+
+
+    private void UpdateClock()
+    {
+        float time = elapsedTime / (targetDayLength * 60);
+        float hour = Mathf.FloorToInt(time * 24);
+        float minute = Mathf.FloorToInt(((time * 24) - hour) * 60);
+
+        string hourString;
+        string minuteString;
+
+        if (!use24Clock && hour > 12)
+            hour -= 12;
+
+        if (hour < 10)
+            hourString = "0" + hour.ToString();
+        else
+            hourString = hour.ToString();
+
+        if (minute < 10)
+            minuteString = "0" + minute.ToString();
+        else
+            minuteString = minute.ToString();
+
+        if (use24Clock)
+            clockText.text = hourString + " : " + minuteString;
+        else if (time > 0.5f)
+            clockText.text = hourString + " : " + minuteString + " pm";
+        else
+            clockText.text = hourString + " : " + minuteString + " am";
+
+
     }
 
     private void AdjustSunRotation()

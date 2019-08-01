@@ -148,4 +148,7 @@ MonoBehaviour:
   options:
   - color: {r: 1, g: 0, b: 0, a: 1}
     sprite: {fileID: 21300000, guid: cdaa40ff531f3a24791544c89880d172, type: 3}
-    title: sword
+    title: build
+  - color: {r: 1, g: 0, b: 0.96968555, a: 1}
+    sprite: {fileID: 21300000, guid: cdaa40ff531f3a24791544c89880d172, type: 3}
+    title: destroy

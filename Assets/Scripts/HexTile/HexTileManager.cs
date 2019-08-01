@@ -19,7 +19,14 @@ public class HexTileManager : MonoBehaviour
     [SerializeField] private bool flashingIn = true;
     [SerializeField] private bool lookingAtObject = false;
 
+    public static HexTileManager ins;
+
     //================================ Methods
+
+    void Awake()
+    {
+        ins = this;
+    }
 
     void Start()
     {
@@ -89,7 +96,6 @@ public class HexTileManager : MonoBehaviour
     {
         if(GetHexTile().IsBuildable() && GetHexTile().GetBuilding() == null)
         {
-
             Building b;
             Building b2;
             b2 = buildingHandler.GetSimpleBuilding();
@@ -98,15 +104,20 @@ public class HexTileManager : MonoBehaviour
         }
     }
 
+    public void DestroyBuilding()
+    {
+        if(GetHexTile().GetBuilding()!=null)
+        {
+            Destroy(GetHexTile().GetBuilding());
+        }
+    }
+
     private bool CheckBuildingOnTile()
     {
         return GetComponent<HexTile>().GetBuilding();
     }
 
-    public void Glow()
-    {
 
-    }
 
     //================================ Getters & Setters
     public Material GetMaterial() { return GetComponent<Renderer>().material; }

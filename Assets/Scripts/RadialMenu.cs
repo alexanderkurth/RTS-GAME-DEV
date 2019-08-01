@@ -6,10 +6,10 @@ public class RadialMenu : MonoBehaviour
 {
     //================================ Variables
 
-    public Text label;                  
-    public RadialButton buttonPrefab;   
-    public RadialButton selected;
-    public static RadialMenu ins;
+    [SerializeField] private Text label;
+    [SerializeField] private RadialButton buttonPrefab;
+    [SerializeField] private RadialButton selected;
+    [SerializeField] private static RadialMenu ins;
 
     //================================ Methods
 
@@ -36,6 +36,7 @@ public class RadialMenu : MonoBehaviour
             newButton.GetImage().color = obj.GetOptions()[i].GetColor();
             newButton.GetIcon().sprite = obj.GetOptions()[i].GetSprite();
             newButton.SetTitle(obj.GetOptions()[i].GetTitle());
+            newButton.num = i;
             newButton.SetRadialMenu(this);
             newButton.Anim();
             yield return new WaitForSeconds(0.1f);
@@ -48,9 +49,16 @@ public class RadialMenu : MonoBehaviour
         {
             if (selected)
             {
+                if (selected.num == 1)
+                    ButtonHandler.ins.DestroyBuilding();
+
                 Debug.Log(selected.GetTitle() + " was selected!");
+
+
+                if (selected.num == 0)
+                    ButtonHandler.ins.CreateBuilding();
             }
-            //Destroy(gameObject);
+
         }
     }
 
@@ -58,6 +66,11 @@ public class RadialMenu : MonoBehaviour
     {
         Destroy(gameObject);
     }
-    
+
+    //================================ Getters & Setters
+
+    public RadialButton GetSelected() { return selected; }
+    public void SetRadialButton(RadialButton button) { selected = button; }
+    public static RadialMenu GetInstance() { return ins; }
 
 }

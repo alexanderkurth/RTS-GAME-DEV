@@ -8,6 +8,9 @@ public class InputManager : MonoBehaviour
     [SerializeField] private HexTileManager hexTileManager;
     [SerializeField] private bool blockSelection;
 
+    public RadialMenu menuPrefab;
+
+
     //================================ Methods
 
     void Update()
@@ -31,7 +34,7 @@ public class InputManager : MonoBehaviour
                 selectedHextile = GetHexTileClicked();
                 selectedHextile.SetSelected(true);
 
-                RadialMenuSpawner.ins.SpawnMenu(selectedHextile.GetComponent<Interactable>());
+                SpawnMenu(selectedHextile.GetComponent<Interactable>());
 
             }
             else if (selectedHextile == GetHexTileClicked())
@@ -40,7 +43,7 @@ public class InputManager : MonoBehaviour
                 selectedHextile = null;
                 hexTileManager = null;
 
-                RadialMenu.ins.Destroy();
+                RadialMenu.GetInstance().Destroy();
             }
             else if (!hexTileManager.IsSelected() && selectedHextile != null)
             {
@@ -49,9 +52,9 @@ public class InputManager : MonoBehaviour
 
                 selectedHextile = GetHexTileClicked();
                 selectedHextile.SetSelected(true);
-                RadialMenu.ins.Destroy();
+                RadialMenu.GetInstance().Destroy();
 
-                RadialMenuSpawner.ins.SpawnMenu(selectedHextile.GetComponent<Interactable>());
+                SpawnMenu(selectedHextile.GetComponent<Interactable>());
 
             }
         }
@@ -76,6 +79,14 @@ public class InputManager : MonoBehaviour
             return hit.transform.gameObject.GetComponent<HexTile>().GetBuilding();
         else
             return null;
+    }
+
+    public void SpawnMenu(Interactable obj)
+    {
+        RadialMenu newMenu = Instantiate(menuPrefab) as RadialMenu;
+        newMenu.transform.SetParent(transform, false);
+        newMenu.transform.position = Input.mousePosition;
+        newMenu.SpawnButtons(obj);
     }
 
     //================================ Getters & Setters
