@@ -7,15 +7,21 @@ public class Interactable : MonoBehaviour
     [System.Serializable]
     public class Action
     {
-        public Color color;
-        public Sprite sprite;
-        public string title;
+        [SerializeField] private Color color;
+        [SerializeField] private Sprite sprite;
+        [SerializeField] private string title;
+
+        public Color GetColor() { return color; }
+        public Sprite GetSprite() { return sprite; }
+        public string GetTitle() { return title; }
     }
 
-    public string title;
+    //================================ Variables
+
+    [SerializeField] private string title;
 
 
-    public Action[] options;
+    [SerializeField] private Action[] options;
 
     void Start()
     {
@@ -25,9 +31,9 @@ public class Interactable : MonoBehaviour
         }
     }
 
-    void OnMouseDown()
-    {
-    //    RadialMenuSpawner.ins.SpawnMenu(this);
-    }
+    //================================ Getters & Setters
+
+    public Action[] GetOptions() { return options; }
+
 
 }

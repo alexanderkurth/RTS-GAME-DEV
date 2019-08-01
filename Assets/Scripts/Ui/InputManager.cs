@@ -6,15 +6,18 @@ public class InputManager : MonoBehaviour
 
     [SerializeField] private HexTile selectedHextile;
     [SerializeField] private HexTileManager hexTileManager;
+    [SerializeField] private bool blockSelection;
 
     //================================ Methods
 
     void Update()
     {
-        if (Input.GetMouseButtonDown(0))
+        if (Input.GetMouseButtonDown(0) && blockSelection==false)
         {
             HextileManagement();
         }
+        if (RadialButton.GetInstance() != null)
+            blockSelection = RadialButton.GetInstance().GetB();
     }
 
     private void HextileManagement()
@@ -51,9 +54,9 @@ public class InputManager : MonoBehaviour
                 RadialMenuSpawner.ins.SpawnMenu(selectedHextile.GetComponent<Interactable>());
 
             }
-
         }
     }
+
 
     public HexTile GetHexTileClicked()
     {
@@ -74,6 +77,8 @@ public class InputManager : MonoBehaviour
         else
             return null;
     }
+
+    //================================ Getters & Setters
 
     public void SetSelectedHextile(HexTile hextile) { this.selectedHextile = hextile; }
 

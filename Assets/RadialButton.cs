@@ -1,21 +1,28 @@
-﻿using UnityEngine;
-using UnityEngine.UI;
+﻿using System.Collections;
+using UnityEngine;
 using UnityEngine.EventSystems;
-using System.Collections;
+using UnityEngine.UI;
 
-//Add this to your Button Prefab
 public class RadialButton : MonoBehaviour, IPointerEnterHandler, IPointerExitHandler
 {
+    //================================ Variables
 
-    public Image circle;       
-    public Image icon;          
-    public string title;        
-    public RadialMenu myMenu;   
-    public float speed = 8f;    
+    [SerializeField] private Image circle;
+    [SerializeField] private Image icon;
+    [SerializeField] private string title;
+    [SerializeField] private RadialMenu myMenu;
+    [SerializeField] private float speed = 8f;
 
-    public 
+    [SerializeField] private Color defaultColor;
 
-    Color defaultColor;         
+    [SerializeField] private bool b;
+
+    [SerializeField] private static RadialButton ins;
+
+    void Awake()
+    {
+        ins = this;
+    }
 
     public void Anim()
     {
@@ -40,17 +47,19 @@ public class RadialButton : MonoBehaviour, IPointerEnterHandler, IPointerExitHan
         myMenu.selected = this;
         defaultColor = circle.color;
         circle.color = Color.white;
+        b = true;
     }
 
     public void OnPointerExit(PointerEventData eventData)
     {
         myMenu.selected = null;
         circle.color = defaultColor;
+        b = false;
     }
 
     void Update()
     {
-        if(Input.GetMouseButtonDown(0))
+        if (Input.GetMouseButtonDown(0))
             OnMouseDownzd();
     }
 
@@ -59,5 +68,12 @@ public class RadialButton : MonoBehaviour, IPointerEnterHandler, IPointerExitHan
         ButtonHandler.ins.CreateBuilding();
     }
 
-
+    public static RadialButton GetInstance() { return ins; }
+    public bool GetB() { return b; }
+    public Image GetImage() { return circle; }
+    public Image GetIcon() { return icon; }
+    public string GetTitle() { return title; }
+    public void SetTitle(string str) { title = str; }
+    public RadialMenu GetRadialMenu() { return myMenu; }
+    public void SetRadialMenu(RadialMenu menu) { myMenu = menu; }
 }
