@@ -1,5 +1,4 @@
 ﻿using System.Collections;
-using System.Collections.Generic;
 using UnityEngine;
 
 public class HexTileManager : MonoBehaviour
@@ -10,9 +9,9 @@ public class HexTileManager : MonoBehaviour
     public BuildingHandler buildingHandler;
 
     [Header("HighLight Color")]
-    [SerializeField] private int redColor ;
-    [SerializeField] private int greenColor ;
-    [SerializeField] private int blueColor ;
+    [SerializeField] private int redColor;
+    [SerializeField] private int greenColor;
+    [SerializeField] private int blueColor;
 
     [Header("HighLight Management")]
     [SerializeField] private bool startedFlashing = false;
@@ -37,7 +36,7 @@ public class HexTileManager : MonoBehaviour
 
     void Update()
     {
-        if(IsSelected())
+        if (IsSelected())
         {
             GetComponent<Renderer>().material.color = new Color32((byte)redColor, (byte)greenColor, (byte)blueColor, 255);
             lookingAtObject = true;
@@ -94,19 +93,19 @@ public class HexTileManager : MonoBehaviour
 
     public void Build()
     {
-        if(GetHexTile().IsBuildable() && GetHexTile().GetBuilding() == null)
+        if (GetHexTile().IsBuildable() && GetHexTile().GetBuilding() == null)
         {
             Building b;
             Building b2;
             b2 = buildingHandler.GetSimpleBuilding();
-            b = (Instantiate(b2, new Vector3(transform.position.x, 0.5f, transform.position.z), new Quaternion(0.0f, 0.0f, 0.0f, 0.0f))) ;
+            b = (Instantiate(b2, new Vector3(transform.position.x, 0.5f, transform.position.z), new Quaternion(0.0f, 0.0f, 0.0f, 0.0f)));
             SetBuilding(b);
         }
     }
 
     public void DestroyBuilding()
     {
-        if(GetHexTile().GetBuilding()!=null)
+        if (GetHexTile().GetBuilding() != null)
         {
             Destroy(GetHexTile().GetBuilding());
         }

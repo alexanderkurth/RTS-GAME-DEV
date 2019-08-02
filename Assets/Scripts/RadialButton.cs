@@ -60,7 +60,7 @@ public class RadialButton : MonoBehaviour, IPointerEnterHandler, IPointerExitHan
     {
     }
 
-        //================================ Getters & Setters
+    //================================ Getters & Setters
 
 
     public static RadialButton GetInstance() { return ins; }

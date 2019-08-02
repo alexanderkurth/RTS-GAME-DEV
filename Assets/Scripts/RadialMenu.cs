@@ -1,7 +1,7 @@
 ﻿using System.Collections;
 using UnityEngine;
-using UnityEngine.UI;
 using UnityEngine.EventSystems;
+using UnityEngine.UI;
 
 
 public class RadialMenu : MonoBehaviour, IPointerEnterHandler, IPointerExitHandler
@@ -13,7 +13,7 @@ public class RadialMenu : MonoBehaviour, IPointerEnterHandler, IPointerExitHandl
     [SerializeField] private RadialButton selected;
     [SerializeField] private static RadialMenu ins;
 
-    public bool b;
+    [SerializeField] private bool mouseHoover;
 
     //================================ Methods
 
@@ -54,13 +54,13 @@ public class RadialMenu : MonoBehaviour, IPointerEnterHandler, IPointerExitHandl
             if (selected)
             {
                 if (selected.num == 1)
-                    ButtonHandler.ins.DestroyBuilding();
+                    ButtonHandler.GetInstance().DestroyBuilding();
 
                 Debug.Log(selected.GetTitle() + " was selected!");
 
 
                 if (selected.num == 0)
-                    ButtonHandler.ins.CreateBuilding();
+                    ButtonHandler.GetInstance().CreateBuilding();
             }
 
         }
@@ -74,15 +74,17 @@ public class RadialMenu : MonoBehaviour, IPointerEnterHandler, IPointerExitHandl
 
     public void OnPointerEnter(PointerEventData eventData)
     {
-        b = true;
+        mouseHoover = true;
     }
 
     public void OnPointerExit(PointerEventData eventData)
     {
-        b = false;
+        mouseHoover = false;
     }
 
     //================================ Getters & Setters
+
+    public bool isMouseHoovering() { return mouseHoover; }
 
     public RadialButton GetSelected() { return selected; }
     public void SetRadialButton(RadialButton button) { selected = button; }

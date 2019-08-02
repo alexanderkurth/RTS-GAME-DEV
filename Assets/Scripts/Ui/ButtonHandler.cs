@@ -6,7 +6,7 @@ public class ButtonHandler : MonoBehaviour
 
     [SerializeField] private InputManager inputManager;
 
-    public static ButtonHandler ins;
+    [SerializeField] private static ButtonHandler ins;
 
     //================================ Methods
 
@@ -23,7 +23,12 @@ public class ButtonHandler : MonoBehaviour
 
     public void DestroyBuilding()
     {
-        if (inputManager.GetHexTileManager() != null)
+        if (inputManager.GetHexTileManager() != null && inputManager.GetHexTileManager().GetHexTile().GetBuilding() != null)
            inputManager.GetHexTileManager().GetHexTile().GetBuilding().DestroyBuilding();
     }
+
+    //================================ Getters & Setters
+
+    public static ButtonHandler GetInstance() { return ins; }
+
 }

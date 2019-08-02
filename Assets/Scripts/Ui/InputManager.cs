@@ -4,30 +4,33 @@ public class InputManager : MonoBehaviour
 {
     //================================ Variables
 
+    [Header("Selection Management")]
     [SerializeField] private HexTile selectedHextile;
     [SerializeField] private HexTileManager hexTileManager;
     [SerializeField] private bool blockSelection;
 
-    public RadialMenu menuPrefab;
+    [SerializeField] private RadialMenu menuPrefab;
 
 
     //================================ Methods
 
     void Update()
     {
-        if (Input.GetMouseButtonDown(0) )
+        if (Input.GetMouseButtonDown(0))
         {
             HextileManagement();
         }
-        blockSelection = RadialMenu.GetInstance().b;
-        Debug.Log(blockSelection);
+
+        if (RadialMenu.GetInstance() != null)
+            blockSelection = RadialMenu.GetInstance().isMouseHoovering();
+
     }
 
     private void HextileManagement()
     {
         if (GetHexTileClicked())
         {
-            if(blockSelection == false)
+            if (blockSelection == false)
                 hexTileManager = GetHexTileClicked().transform.gameObject.GetComponent<HexTileManager>();
 
             if (!hexTileManager.IsSelected() && selectedHextile == null && blockSelection == false)
