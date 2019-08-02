@@ -6,6 +6,12 @@ public class Building : MonoBehaviour
 
     public static Building ins;
 
+    private bool inUse;
+    private int production;
+    private int workers;
+    private Resource resourceCrafted;
+    private Resource resourceNeeded;
+
     //================================ Methods
 
     void Awake()
@@ -17,6 +23,7 @@ public class Building : MonoBehaviour
     {
         Destroy(gameObject);
     }
+
     //================================ Getters & Setters
 
 

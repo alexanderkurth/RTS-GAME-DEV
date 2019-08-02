@@ -33,7 +33,7 @@ public class InputManager : MonoBehaviour
             if (blockSelection == false)
                 hexTileManager = GetHexTileClicked().transform.gameObject.GetComponent<HexTileManager>();
 
-            if (!hexTileManager.IsSelected() && selectedHextile == null && blockSelection == false)
+            if (!hexTileManager.IsSelected() && selectedHextile == null )
             {
                 selectedHextile = GetHexTileClicked();
                 selectedHextile.SetSelected(true);
@@ -41,7 +41,7 @@ public class InputManager : MonoBehaviour
                 SpawnMenu(selectedHextile.GetComponent<Interactable>());
 
             }
-            else if (selectedHextile == GetHexTileClicked() && blockSelection == false)
+            else if (selectedHextile == GetHexTileClicked() )
             {
                 selectedHextile.SetSelected(false);
                 selectedHextile = null;
@@ -50,7 +50,7 @@ public class InputManager : MonoBehaviour
                 RadialMenu.GetInstance().Destroy();
 
             }
-            else if (!hexTileManager.IsSelected() && selectedHextile != null && blockSelection == false)
+            else if (!hexTileManager.IsSelected() && selectedHextile != null)
             {
                 selectedHextile.SetSelected(false);
                 selectedHextile.gameObject.GetComponent<HexTileManager>().SetMaterialColor(Color.white);
