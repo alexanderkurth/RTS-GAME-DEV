@@ -1,8 +1,10 @@
 ﻿using System.Collections;
 using UnityEngine;
 using UnityEngine.UI;
+using UnityEngine.EventSystems;
 
-public class RadialMenu : MonoBehaviour
+
+public class RadialMenu : MonoBehaviour, IPointerEnterHandler, IPointerExitHandler
 {
     //================================ Variables
 
@@ -10,6 +12,8 @@ public class RadialMenu : MonoBehaviour
     [SerializeField] private RadialButton buttonPrefab;
     [SerializeField] private RadialButton selected;
     [SerializeField] private static RadialMenu ins;
+
+    public bool b;
 
     //================================ Methods
 
@@ -60,11 +64,22 @@ public class RadialMenu : MonoBehaviour
             }
 
         }
+
     }
 
     public void Destroy()
     {
         Destroy(gameObject);
+    }
+
+    public void OnPointerEnter(PointerEventData eventData)
+    {
+        b = true;
+    }
+
+    public void OnPointerExit(PointerEventData eventData)
+    {
+        b = false;
     }
 
     //================================ Getters & Setters

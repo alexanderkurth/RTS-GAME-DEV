@@ -15,8 +15,6 @@ public class RadialButton : MonoBehaviour, IPointerEnterHandler, IPointerExitHan
 
     [SerializeField] private Color defaultColor;
 
-    [SerializeField] private bool b;
-
     [SerializeField] private static RadialButton ins;
 
     public bool clicked;
@@ -50,26 +48,22 @@ public class RadialButton : MonoBehaviour, IPointerEnterHandler, IPointerExitHan
         myMenu.SetRadialButton(this);
         defaultColor = circle.color;
         circle.color = Color.white;
-        b = true;
     }
 
     public void OnPointerExit(PointerEventData eventData)
     {
         myMenu.SetRadialButton(null);
         circle.color = defaultColor;
-        b = false;
     }
 
     void Update()
     {
-        Debug.Log(b);
     }
 
         //================================ Getters & Setters
 
 
     public static RadialButton GetInstance() { return ins; }
-    public bool GetB() { return b; }
     public Image GetImage() { return circle; }
     public Image GetIcon() { return icon; }
     public string GetTitle() { return title; }

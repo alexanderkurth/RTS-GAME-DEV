@@ -24,6 +24,6 @@ public class ButtonHandler : MonoBehaviour
     public void DestroyBuilding()
     {
         if (inputManager.GetHexTileManager() != null)
-            Building.ins.DestroyBuilding();
+           inputManager.GetHexTileManager().GetHexTile().GetBuilding().DestroyBuilding();
     }
 }
