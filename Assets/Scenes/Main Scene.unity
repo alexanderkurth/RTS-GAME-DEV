@@ -500,8 +500,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 5297b7e8967dbad449b435f50ea17c43, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  simpleBuilding: {fileID: 7624088725802603785, guid: b54371e1b8b20db46b552b5385692800,
-    type: 3}
+  simpleBuilding: {fileID: 0}
+  mine: {fileID: 0}
 --- !u!114 &963194231
 MonoBehaviour:
   m_ObjectHideFlags: 0

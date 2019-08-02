@@ -15,10 +15,11 @@ public class ButtonHandler : MonoBehaviour
         ins = this;
     }
 
-    public void CreateBuilding()
+
+    public void CreateBuilding(Building b)
     {
         if (inputManager.GetHexTileManager() != null)
-            inputManager.GetHexTileManager().Build();
+            inputManager.GetHexTileManager().Build(b);
     }
 
     public void DestroyBuilding()

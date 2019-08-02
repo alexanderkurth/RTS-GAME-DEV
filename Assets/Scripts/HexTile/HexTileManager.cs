@@ -91,14 +91,14 @@ public class HexTileManager : MonoBehaviour
         }
     }
 
-    public void Build()
+    //[TODO] Refactor 
+    public void Build(Building b3)
     {
         if (GetHexTile().IsBuildable() && GetHexTile().GetBuilding() == null)
         {
             Building b;
-            Building b2;
-            b2 = buildingHandler.GetSimpleBuilding();
-            b = (Instantiate(b2, new Vector3(transform.position.x, 0.5f, transform.position.z), new Quaternion(0.0f, 0.0f, 0.0f, 0.0f)));
+
+            b = (Instantiate(b3, new Vector3(transform.position.x, 0.5f, transform.position.z), new Quaternion(0.0f, 0.0f, 0.0f, 0.0f)));
             SetBuilding(b);
         }
     }
@@ -116,9 +116,8 @@ public class HexTileManager : MonoBehaviour
         return GetComponent<HexTile>().GetBuilding();
     }
 
-
-
     //================================ Getters & Setters
+
     public Material GetMaterial() { return GetComponent<Renderer>().material; }
     public void SetMaterialColor(Color c) { GetComponent<Renderer>().material.color = c; }
 

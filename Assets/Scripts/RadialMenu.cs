@@ -60,7 +60,11 @@ public class RadialMenu : MonoBehaviour, IPointerEnterHandler, IPointerExitHandl
 
 
                 if (selected.num == 0)
-                    ButtonHandler.GetInstance().CreateBuilding();
+                    ButtonHandler.GetInstance().CreateBuilding(BuildingHandler.ins.GetSimpleBuilding());
+
+
+                if (selected.num == 2)
+                    ButtonHandler.GetInstance().CreateBuilding(BuildingHandler.ins.GetMine());
             }
 
         }

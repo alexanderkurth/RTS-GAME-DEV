@@ -5,14 +5,22 @@ using UnityEngine;
 public class BuildingHandler : MonoBehaviour
 {
     public static BuildingHandler ins;
+    public Building simpleBuilding;
+    public Building mine;
+
     void Awake()
     {
         ins = this;
     }
 
-    public Building simpleBuilding;
+    void Update()
+    {
+ 
+    }
+
 
     public Building GetSimpleBuilding() { return simpleBuilding; }
+    public Building GetMine() { return mine; }
 
 
 }

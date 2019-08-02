@@ -53,8 +53,8 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 7592201233895562859}
-  - component: {fileID: 4082500576656220228}
   - component: {fileID: 5756824791864802140}
+  - component: {fileID: 4082500576656220228}
   m_Layer: 0
   m_Name: RadialMenu
   m_TagString: Untagged
@@ -82,6 +82,14 @@ RectTransform:
   m_AnchoredPosition: {x: 716.09467, y: 292.06738}
   m_SizeDelta: {x: 100, y: 100}
   m_Pivot: {x: 0.5, y: 0.5}
+--- !u!222 &5756824791864802140
+CanvasRenderer:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4482901805975852393}
+  m_CullTransparentMesh: 0
 --- !u!114 &4082500576656220228
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -98,14 +106,7 @@ MonoBehaviour:
   buttonPrefab: {fileID: -2742565120745749552, guid: fac231f34efc89549aa23286efdf5f24,
     type: 3}
   selected: {fileID: 0}
---- !u!222 &5756824791864802140
-CanvasRenderer:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 4482901805975852393}
-  m_CullTransparentMesh: 0
+  mouseHoover: 0
 --- !u!1 &7204300086517215419
 GameObject:
   m_ObjectHideFlags: 0

@@ -6,11 +6,9 @@ public class Building : MonoBehaviour
 
     public static Building ins;
 
-    private bool inUse;
-    private int production;
-    private int workers;
-    private Resource resourceCrafted;
-    private Resource resourceNeeded;
+    [SerializeField] protected bool inUse;
+
+
 
     //================================ Methods
 
@@ -18,6 +16,8 @@ public class Building : MonoBehaviour
     {
         ins = this;
     }
+
+
 
     public void DestroyBuilding()
     {
