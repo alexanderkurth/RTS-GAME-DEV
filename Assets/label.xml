@@ -1,8 +1,9 @@
 ﻿<?xml version="1.0" encoding="utf-8"?>
-<label>
+<labels>
   
   <key name="k1">val1</key>
   <key name="k2">val2</key>
   <key name="k3">val3</key>
+  <key name="Text">val4</key>
 
-</label>
+</labels>

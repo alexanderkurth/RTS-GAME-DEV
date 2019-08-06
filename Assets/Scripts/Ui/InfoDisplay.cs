@@ -17,4 +17,11 @@ public class InfoDisplay : MonoBehaviour
     {
         infoText.text = uiInfoManager.GetInfoText();
     }
+
+    private void Start()
+    {
+        Debug.Log(gameObject.name);
+        if (uiInfoManager.labels[gameObject.name] != null)
+            infoText.text = uiInfoManager.labels[gameObject.name];
+    }
 }

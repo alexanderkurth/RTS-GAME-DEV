@@ -1,4 +1,6 @@
-﻿using UnityEngine;
+﻿using System.Collections.Generic;
+using System.Xml;
+using UnityEngine;
 
 public class UiInfoManager : MonoBehaviour
 {
@@ -16,7 +18,22 @@ public class UiInfoManager : MonoBehaviour
 
     [SerializeField] private InputManager inputManager;
 
+    public Dictionary<string,string> labels = new Dictionary<string, string>();
+    public List<string> values;
+
     //================================ Methods
+
+    void Awake()
+    {
+        XmlDocument doc = new XmlDocument();
+        doc.Load("Assets/label.xml");
+
+        foreach (XmlNode node in doc.DocumentElement.ChildNodes)
+        {
+            labels.Add(node.Attributes["name"].InnerText, node.InnerText);
+        }
+        Debug.Log(labels["k1"]);
+    }
 
     void Update()
     {
