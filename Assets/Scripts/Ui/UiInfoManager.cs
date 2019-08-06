@@ -1,5 +1,4 @@
 ﻿using UnityEngine;
-using UnityEngine.UI;
 
 public class UiInfoManager : MonoBehaviour
 {
@@ -7,6 +6,12 @@ public class UiInfoManager : MonoBehaviour
 
     [SerializeField] private string infoText;
     [SerializeField] private string goldResource;
+
+    [SerializeField] private string mineNumber;
+    [SerializeField] private string stockPileNumber;
+    [SerializeField] private string buildingNumber;
+
+
     [SerializeField] private HexTileManager hextileManager;
 
     [SerializeField] private InputManager inputManager;
@@ -25,7 +30,7 @@ public class UiInfoManager : MonoBehaviour
             infoText = null;
     }
 
-    void GetInformations()//check hextile manager from InputManager
+    public void GetInformations()
     {
         string hextileName;
         string coordinates;
@@ -41,6 +46,10 @@ public class UiInfoManager : MonoBehaviour
     }
 
     //================================ Getters & Setters
+
+    public string GetGoldInStockPile() { return StockPile.quantity.ToString(); }
+    public string GetStockPileNumber() { return BuildingHandler.ins.maxStockpile.ToString(); }
     public string GetInfoText() { return this.infoText; }
+    public string GetGoldReourceText() { return this.goldResource; }
 
 }

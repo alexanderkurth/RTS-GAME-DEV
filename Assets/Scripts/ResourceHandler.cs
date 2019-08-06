@@ -4,10 +4,12 @@ using UnityEngine;
 
 public class ResourceHandler : MonoBehaviour
 {
+    //================================ Variables
 
-    public StockPile stockPile;
     public static ResourceHandler ins;
     public int quantite;
+
+    //================================ Methods
 
     void Start()
     {
@@ -16,6 +18,6 @@ public class ResourceHandler : MonoBehaviour
 
     void Update()
     {
-    //    Debug.Log(stockPile.quantity);
+
     }
 }

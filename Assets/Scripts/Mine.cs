@@ -10,7 +10,6 @@ public class Mine : Building
     [SerializeField] private int workers;
     [SerializeField] private Resource producedResource;
     [SerializeField] private Resource resourceNeeded;
-    [SerializeField] private int quantite;
     [SerializeField] private bool isWorking;
 
 
@@ -20,9 +19,8 @@ public class Mine : Building
     {
         producedResource = new Resource("gold", "mineral", 1.0f);
         production = 1;
+        workers = 1;
         isWorking = true;
-        quantite = 0;
-
     }
     void Start()
     {
@@ -33,18 +31,24 @@ public class Mine : Building
     {
         while(isWorking)
         {
+            ResourceHandler.ins.quantite += production * workers;
 
             yield return new WaitForSeconds(producedResource.GetExtractionTime());
-            quantite += production;
-
-            ResourceHandler.ins.quantite = quantite;
-
         }
     }
 
     void Update()
     {
+        if (ResourceHandler.ins.quantite >= StockPile.maxQuantity)
+        {
+            isWorking = false;
+            StopCoroutine(ExtractResource());
 
+        }
+        else
+        {
+            isWorking = true;
+        }
     }
 
     

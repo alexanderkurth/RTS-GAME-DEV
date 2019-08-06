@@ -4,8 +4,6 @@ public class Building : MonoBehaviour
 {
     //================================ Variables
 
-    public static Building ins;
-
     [SerializeField] protected bool inUse;
 
 
@@ -14,13 +12,19 @@ public class Building : MonoBehaviour
 
     void Awake()
     {
-        ins = this;
     }
 
 
 
     public void DestroyBuilding()
     {
+        if (this is Mine)
+            BuildingHandler.ins.maxMine++;
+        if (this is StockPile)
+            BuildingHandler.ins.maxStockpile++;
+        if (this is Building)
+            BuildingHandler.ins.maxSimpleBuilding++;
+
         Destroy(gameObject);
     }
 

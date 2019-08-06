@@ -1,13 +1,11 @@
-﻿using System.Collections;
-using System.Collections.Generic;
-using UnityEngine;
+﻿using UnityEngine;
 
 public class StockPile : Building
 {
 
     [SerializeField] private Resource[] stackableResources;
-    [SerializeField] private int maxQuantity;
-    public int quantity;
+    [SerializeField] public static int maxQuantity = 3;
+    public static int quantity;
     void Start()
     {
         
@@ -16,6 +14,5 @@ public class StockPile : Building
     void Update()
     {
         quantity = ResourceHandler.ins.quantite;
-        Debug.Log(quantity);
     }
 }

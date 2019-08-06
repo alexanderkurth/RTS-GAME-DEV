@@ -105,5 +105,5 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   inUse: 0
-  maxQuantity: 0
+  maxQuantity: 3
   quantity: 0

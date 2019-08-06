@@ -47,6 +47,7 @@ public class RadialMenu : MonoBehaviour, IPointerEnterHandler, IPointerExitHandl
         }
     }
 
+    //[TODO] Refactor
     void Update()
     {
         if (Input.GetMouseButtonUp(0))
@@ -59,14 +60,14 @@ public class RadialMenu : MonoBehaviour, IPointerEnterHandler, IPointerExitHandl
                 Debug.Log(selected.GetTitle() + " was selected!");
 
 
-                if (selected.num == 0)
+                if (selected.num == 0 && !BuildingHandler.ins.isSimpleBuildingMaxCountReached)
                     ButtonHandler.GetInstance().CreateBuilding(BuildingHandler.ins.GetSimpleBuilding());
 
 
-                if (selected.num == 2)
+                if (selected.num == 2 && !BuildingHandler.ins.isMineMaxCountReached)
                     ButtonHandler.GetInstance().CreateBuilding(BuildingHandler.ins.GetMine());
 
-                if (selected.num == 3)
+                if (selected.num == 3 && !BuildingHandler.ins.isStockpileMaxCountReached)
                     ButtonHandler.GetInstance().CreateBuilding(BuildingHandler.ins.GetStockPile());
             }
 

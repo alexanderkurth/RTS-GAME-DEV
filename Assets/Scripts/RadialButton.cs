@@ -56,10 +56,6 @@ public class RadialButton : MonoBehaviour, IPointerEnterHandler, IPointerExitHan
         circle.color = defaultColor;
     }
 
-    void Update()
-    {
-    }
-
     //================================ Getters & Setters
 
 
