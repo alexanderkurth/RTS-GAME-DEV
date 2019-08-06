@@ -7,6 +7,7 @@ public class BuildingHandler : MonoBehaviour
     public static BuildingHandler ins;
     public Building simpleBuilding;
     public Building mine;
+    public StockPile stockPile;
 
     void Awake()
     {
@@ -21,6 +22,6 @@ public class BuildingHandler : MonoBehaviour
 
     public Building GetSimpleBuilding() { return simpleBuilding; }
     public Building GetMine() { return mine; }
-
+    public Building GetStockPile() { return stockPile; }
 
 }

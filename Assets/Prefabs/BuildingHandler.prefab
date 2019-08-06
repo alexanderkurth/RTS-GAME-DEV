@@ -46,3 +46,5 @@ MonoBehaviour:
   simpleBuilding: {fileID: 7624088725802603785, guid: b54371e1b8b20db46b552b5385692800,
     type: 3}
   mine: {fileID: 111244635451324525, guid: 4a44fc1d2f7300042b185fc2b5dfd0d4, type: 3}
+  stockPile: {fileID: 6065824179421435262, guid: 0550f81105bc02344a6cb48edc2d8482,
+    type: 3}

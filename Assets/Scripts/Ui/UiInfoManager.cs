@@ -1,10 +1,12 @@
 ﻿using UnityEngine;
+using UnityEngine.UI;
 
 public class UiInfoManager : MonoBehaviour
 {
     //================================ Variables
 
     [SerializeField] private string infoText;
+    [SerializeField] private string goldResource;
     [SerializeField] private HexTileManager hextileManager;
 
     [SerializeField] private InputManager inputManager;

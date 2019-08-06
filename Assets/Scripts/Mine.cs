@@ -13,6 +13,7 @@ public class Mine : Building
     [SerializeField] private int quantite;
     [SerializeField] private bool isWorking;
 
+
     //================================ Methods
 
     private void Awake()
@@ -21,11 +22,11 @@ public class Mine : Building
         production = 1;
         isWorking = true;
         quantite = 0;
+
     }
     void Start()
     {
         StartCoroutine(ExtractResource());
-        
     }
 
     IEnumerator ExtractResource()
@@ -35,6 +36,8 @@ public class Mine : Building
 
             yield return new WaitForSeconds(producedResource.GetExtractionTime());
             quantite += production;
+
+            ResourceHandler.ins.quantite = quantite;
 
         }
     }
