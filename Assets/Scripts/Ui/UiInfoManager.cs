@@ -8,9 +8,9 @@ public class UiInfoManager : MonoBehaviour
 
     [SerializeField] private string infoText;
 
-    [SerializeField] private string mineNumber;
-    [SerializeField] private string stockPileNumber;
-    [SerializeField] private string buildingNumber;
+    [SerializeField] private int mineNumber;
+    [SerializeField] private int stockPileNumber;
+    [SerializeField] private int buildingNumber;
 
 
     [SerializeField] private HexTileManager hextileManager;
@@ -42,6 +42,10 @@ public class UiInfoManager : MonoBehaviour
         }
         else
             infoText = null;
+
+        mineNumber = BuildingHandler.ins.mineNumber;
+        stockPileNumber = BuildingHandler.ins.stockPileNumber;
+        buildingNumber = BuildingHandler.ins.buildingNumber;
     }
 
     public void GetInformations()
@@ -62,5 +66,9 @@ public class UiInfoManager : MonoBehaviour
 
     public string GetGoldInStockPile() { return StockPile.quantity.ToString(); }
     public string GetInfoText() { return this.infoText; }
+
+    public int GetMineNumber() { return mineNumber; }
+    public int GetBuildingNumber() { return buildingNumber; }
+    public int GetStockPileNumber() { return stockPileNumber; }
 
 }
