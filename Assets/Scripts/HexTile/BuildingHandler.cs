@@ -41,17 +41,17 @@ public class BuildingHandler : MonoBehaviour
     //[TODO] Refactor
     void Update()
     {
-        if (maxMine == 0)
+        if (maxMine == mineNumber)
             isMineMaxCountReached = true;
         else
             isMineMaxCountReached = false;
 
-        if (maxSimpleBuilding == 0)
+        if (maxSimpleBuilding == buildingNumber)
             isSimpleBuildingMaxCountReached = true;
         else
             isSimpleBuildingMaxCountReached = false;
 
-        if (maxStockpile == 0)
+        if (maxStockpile == stockPileNumber)
             isStockpileMaxCountReached = true;
         else
             isStockpileMaxCountReached = false;
@@ -61,8 +61,8 @@ public class BuildingHandler : MonoBehaviour
 
     //================================ Getters & Setters
 
-    public Building GetSimpleBuilding() { maxSimpleBuilding--;  return simpleBuilding; }
-    public Building GetMine() { maxMine--; return mine; }
-    public Building GetStockPile() { maxStockpile--; return stockPile; }
+    public Building GetSimpleBuilding() { buildingNumber++;  return simpleBuilding; }
+    public Building GetMine() { mineNumber++; return mine; }
+    public Building GetStockPile() { stockPileNumber++; return stockPile; }
 
 }

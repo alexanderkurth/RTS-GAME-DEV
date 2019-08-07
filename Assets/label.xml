@@ -1,9 +1,9 @@
 ﻿<?xml version="1.0" encoding="utf-8"?>
 <labels>
   
-  <key name="k1">val1</key>
-  <key name="k2">val2</key>
-  <key name="k3">val3</key>
-  <key name="Text">val4</key>
+  <key name="Mine_Number_label"> Number of Mine : </key>
+  <key name="Stock_Pile_Number_label"> Number of StockPile : </key>
+  <key name="Building_number_label"> Number of Building :</key>
+  <key name="Resource_Stocked_Label"> Gold : </key>
 
 </labels>

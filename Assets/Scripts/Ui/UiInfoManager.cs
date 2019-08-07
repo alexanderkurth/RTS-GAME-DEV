@@ -7,7 +7,6 @@ public class UiInfoManager : MonoBehaviour
     //================================ Variables
 
     [SerializeField] private string infoText;
-    [SerializeField] private string goldResource;
 
     [SerializeField] private string mineNumber;
     [SerializeField] private string stockPileNumber;
@@ -19,7 +18,6 @@ public class UiInfoManager : MonoBehaviour
     [SerializeField] private InputManager inputManager;
 
     public Dictionary<string,string> labels = new Dictionary<string, string>();
-    public List<string> values;
 
     //================================ Methods
 
@@ -32,7 +30,6 @@ public class UiInfoManager : MonoBehaviour
         {
             labels.Add(node.Attributes["name"].InnerText, node.InnerText);
         }
-        Debug.Log(labels["k1"]);
     }
 
     void Update()
@@ -59,14 +56,11 @@ public class UiInfoManager : MonoBehaviour
         emptyness = hextileManager.GetHexTile().IsEmpty().ToString();
         b = hextileManager.GetHexTile().GetBuilding();
         infoText = hextileName + "\n" + coordinates + "\n" + emptyness + b;
-
     }
 
     //================================ Getters & Setters
 
     public string GetGoldInStockPile() { return StockPile.quantity.ToString(); }
-    public string GetStockPileNumber() { return BuildingHandler.ins.maxStockpile.ToString(); }
     public string GetInfoText() { return this.infoText; }
-    public string GetGoldReourceText() { return this.goldResource; }
 
 }
