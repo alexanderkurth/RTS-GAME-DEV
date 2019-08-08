@@ -127,9 +127,9 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   buildingHandler: {fileID: 8607898157745534849, guid: 4ea35c5dfba97d245b0d4d42acb4a452,
     type: 3}
-  redColor: 0
-  greenColor: 0
-  blueColor: 0
+  redColorArray: 
+  greenColorArray: 
+  blueColorArray: 
   startedFlashing: 0
   flashingIn: 1
   lookingAtObject: 0
@@ -149,13 +149,13 @@ MonoBehaviour:
   options:
   - color: {r: 1, g: 0, b: 0, a: 1}
     sprite: {fileID: 21300000, guid: cdaa40ff531f3a24791544c89880d172, type: 3}
-    title: 
+    title: building
   - color: {r: 0.77090603, g: 0.9528302, b: 0.5528213, a: 1}
     sprite: {fileID: 21300000, guid: cdaa40ff531f3a24791544c89880d172, type: 3}
-    title: 
+    title: destroy
   - color: {r: 0.8679245, g: 0.7950194, b: 0.15966538, a: 1}
     sprite: {fileID: 21300000, guid: 3d55624c4b4d6e54d87be9efe9bde3c1, type: 3}
-    title: 
+    title: mine
   - color: {r: 0, g: 0.26026773, b: 1, a: 1}
     sprite: {fileID: 21300000, guid: 7e06beed79746f249b8a0f46e2d9a523, type: 3}
-    title: 
+    title: stockpile
