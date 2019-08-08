@@ -1,7 +1,7 @@
 ﻿using System.Collections;
 using UnityEngine;
 
-public class HexTileManager : MonoBehaviour
+public class HexTileManager : MonoBehaviour//TODO[Refactor] take all color insteds of 1 
 {
     //================================ Variables
 
@@ -38,9 +38,13 @@ public class HexTileManager : MonoBehaviour
     {
         if (IsSelected())
         {
-            GetComponent<Renderer>().material.color = new Color32((byte)redColor, (byte)greenColor, (byte)blueColor, 255);
+            //   GetComponent<Renderer>().material.color = new Color32((byte)redColor, (byte)greenColor, (byte)blueColor, 255);
+            for (int i = 0; i < GetComponent<Renderer>().materials.Length; i++)
+            {
+                GetComponent<Renderer>().materials[i].color = new Color32((byte)redColor, (byte)greenColor, (byte)blueColor, 255);
+            }
             lookingAtObject = true;
-
+            // Debug.Log(GetComponent<Renderer>().materials.Length);
             if (!startedFlashing)
             {
                 startedFlashing = true;
@@ -51,7 +55,12 @@ public class HexTileManager : MonoBehaviour
         {
             startedFlashing = false;
             lookingAtObject = false;
-            GetComponent<Renderer>().material.color = new Color32(160, 160, 160, 255);
+            //   GetComponent<Renderer>().material.color = new Color32(160, 160, 160, 255);
+            for (int i = 0; i < GetComponent<Renderer>().materials.Length; i++)
+            {
+                GetComponent<Renderer>().materials[i].color = new Color32((byte)redColor, (byte)greenColor, (byte)blueColor, 255);
+            }
+            lookingAtObject = true;
             StopCoroutine(FlashObject());
         }
     }
