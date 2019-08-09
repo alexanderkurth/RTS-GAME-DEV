@@ -53,7 +53,7 @@ public class InputManager : MonoBehaviour
             else if (!hexTileManager.IsSelected() && selectedHextile != null)
             {
                 selectedHextile.SetSelected(false);
-                selectedHextile.gameObject.GetComponent<HexTileManager>().SetMaterialColor(Color.white);
+               // selectedHextile.gameObject.GetComponent<HexTileManager>().SetMaterialColor(Color.white);
 
                 selectedHextile = GetHexTileClicked();
                 selectedHextile.SetSelected(true);
