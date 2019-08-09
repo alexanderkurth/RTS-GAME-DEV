@@ -120,9 +120,13 @@ public class HexTileManager : MonoBehaviour//TODO[Refactor] take all color inste
         {
             Building b;
 
-            b = (Instantiate(building, new Vector3(transform.position.x, 0.7f, transform.position.z), new Quaternion(0.0f, 0.0f, 0.0f, 0.0f)));
+            b = (Instantiate(building, new Vector3(transform.position.x, 0.2f, transform.position.z), new Quaternion(0.0f, 0.0f, 0.0f, 0.0f)));
             SetBuilding(b);
             b.gameObject.transform.SetParent(this.gameObject.transform, true);
+
+            //[TODO] Modify 3d model
+            if (b.gameObject.GetComponent<StockPile>())
+                b.gameObject.transform.localRotation = new Quaternion(-0.0f,0.0f,0.0f,0.0f);
         }
     }
 
